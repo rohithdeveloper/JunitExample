@@ -25,7 +25,7 @@ public class ProductController {
 	@GetMapping("/welcome")
 	public String welcome() {
 		return "Welcome to springboot security";
-		System.out.println("Hi welcome");
+		
 	}
 	@PostMapping("/send")
 	public Product saveProducts(@RequestBody Product product) {
