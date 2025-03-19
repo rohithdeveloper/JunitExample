@@ -27,21 +27,24 @@ public class ProductController {
 		return "Welcome to springboot security";
 		
 	}
+
 	@PostMapping("/send")
 	public Product saveProducts(@RequestBody Product product) {
+
 		return productService.saveProduct(product);
 	}
-	
-	
+
+
 	@GetMapping("/product/fetchAll")
 	public List<Product> fetchProducts(){
 		List<Product> list=productService.fetchAllProducts();
 		return list;
 	}
 	
+
 	@GetMapping("/product/fetch/{id}")
-	public Product fetchProductById(@PathVariable Long id, @RequestBody Product product) throws Exception{
-		return productService.fetchProduct(id, product);
+	public Product fetchProductById(@PathVariable Long id) throws Exception {
+		return productService.fetchProduct(id);
 	}
 	
 	@PutMapping("product/{id}")

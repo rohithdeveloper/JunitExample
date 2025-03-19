@@ -63,14 +63,14 @@ public class ProductServiceImpl implements ProductService{
 		}
 	}
 
+
+
 	@Override
-	public Product fetchProduct(Long id, Product product) throws Exception {
-		// TODO Auto-generated method stub
-		Optional<Product> p=productRepo.findById(id);
-		if(p.isPresent()) {
-			Product getProduct=p.get();
-			return getProduct;
-		}else {
+	public Product fetchProduct(Long id) throws Exception {
+		Optional<Product> p = productRepo.findById(id);
+		if (p.isPresent()) {
+			return p.get();
+		} else {
 			throw new Exception("Product id not found");
 		}
 	}

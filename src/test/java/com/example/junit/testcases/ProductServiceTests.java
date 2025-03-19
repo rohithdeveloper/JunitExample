@@ -74,7 +74,7 @@ public class ProductServiceTests {
 		Product product = new Product(1L, "Iphone", 1000, "Mobile");
 		when(productRepo.findById(1L)).thenReturn(Optional.of(product));
 
-		Product fetchedProduct = productService.fetchProduct(1L, product);
+		Product fetchedProduct = productService.fetchProduct(1L);
 
 		assertEquals(1L, fetchedProduct.getId().longValue());
 		assertEquals("Iphone", fetchedProduct.getProductName());
@@ -88,7 +88,7 @@ public class ProductServiceTests {
 		when(productRepo.findById(1L)).thenReturn(Optional.empty());
 
 		Exception exception = assertThrows(Exception.class, () -> {
-			productService.fetchProduct(1L, new Product());
+			productService.fetchProduct(1L);
 		});
 		assertEquals("Product id not found", exception.getMessage());
 	}
